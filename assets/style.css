@@ -1,0 +1,10 @@
+.box{
+    display: inline-block;
+    color: rgba(32,32,32,0.2);
+}
+.double{
+    width: calc((1vw / 2) * 0.9);
+}
+.triple{
+    width: calc((1vw / 3) * 0.9);
+}
