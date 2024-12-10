@@ -4,7 +4,11 @@ body{
 }
 .box{
     display: inline-block;
-    color: rgba(32,32,32,0.2);
+    background-color: rgba(32,32,32,0.2);
+}
+.block{
+    display: inline-block;
+    text-align: center;
 }
 .double{
     width: 40%;
