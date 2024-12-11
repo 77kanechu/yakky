@@ -11,22 +11,33 @@
     <div class="block">
         <div class="box double">
             <h2>ヤッキー相場</h2>
+            <p id="yvalue">取得中</p>
         </div>
         <div class="box double">
-            <h2>前日からの<span>推移</span></h2>
+            <h2>グー相場</h2>
+            <p id="gvalue">取得中</p>
         </div> 
     </div>
     <div class="block">
         <div class="box triple">
             <h3>昨日の<span>相場</span></h2>
+                <p id="lastvalue">取得中</p>
         </div>
         <div class="box triple">
             <h3>焼きそばを<span>食べた</span><span>人数</span></h2>
+                <p id="ate">取得中</p>
         </div>
         <div class="box triple">
             <h3>予鈴遅刻の<span>人数</span></h2>
+                <p id="late">取得中</p>
         </div> 
     </div>
 
+    <canvas id="yakkygraph"></canvas>
+
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+<script src="./assets/program.js"></script>
+
 </html>

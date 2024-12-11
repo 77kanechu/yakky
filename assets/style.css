@@ -2,6 +2,11 @@ body{
     margin: 0px;
     padding: 0px;
 }
+h1{
+    padding: 10px;
+    margin: 0px;
+    font-size: 50px;
+}
 .box{
     display: inline-block;
     background-color: rgba(32,32,32,0.2);
@@ -27,4 +32,13 @@ h2>span{
 }
 h3>span{
     white-space: nowrap;
+}
+.double>p{
+    font-size: 60px;
+    margin: 0px;
+}
+.triple>p{
+    font-size: 50px;
+    margin: 0px;
+    margin-top: 30px;
 }
