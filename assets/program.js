@@ -37,13 +37,6 @@ async function loadData() {
                     backgroundColor: "#ffffff00"
                 }
             ]
-            
-        },
-        options: {
-            y: {
-                min: 0,
-                max: 20,
-            },
         },
     })
 }
