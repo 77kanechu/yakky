@@ -17,7 +17,7 @@ async function loadData() {
         days[times] = x;
         yaksiobas[times] = y;
         yoreis[times] = z;
-        yakkyvalue[times] = (64 + 4 * y - 4 * z);
+        yakkyvalue[times] = (64 - 4 * y + 4 * z);
         times--;
     });
     document.getElementById("yvalue").innerText = yakkyvalue[6];
@@ -37,6 +37,14 @@ async function loadData() {
                     backgroundColor: "#ffffff00"
                 }
             ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
         },
     })
 }
