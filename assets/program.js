@@ -17,12 +17,12 @@ async function loadData() {
         days[times] = x;
         yaksiobas[times] = y;
         yoreis[times] = z;
-        yakkyvalue[times] = (16 + 4 * y - 4 * z);
+        yakkyvalue[times] = (64 + 4 * y - 4 * z);
         times--;
     });
     document.getElementById("yvalue").innerText = yakkyvalue[6];
-    document.getElementById("gvalue").innerText = (yakkyvalue[6] / 1600 * 100);
-    document.getElementById("lastvalue").innerText = yakkyvalue[6] / yakkyvalue[5] / 100 * 10000 + "%";
+    document.getElementById("gvalue").innerText = Math.round((yakkyvalue[6] / 16 * 100)) / 100;
+    document.getElementById("lastvalue").innerText = Math.round(yakkyvalue[6] / yakkyvalue[5] * 10000) / 100 + "%";
     document.getElementById("ate").innerText = yaksiobas[6];
     document.getElementById("late").innerText = yoreis[6];
     var yakky = new Chart(yakkyctx, {
