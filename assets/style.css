@@ -13,16 +13,39 @@ body{
     top: calc(50vh - 100px);
 }
 
-.waitdot{
-    text-align: center;
+.waitbar{
+    height: 20px;
+    animation-name: waitbar;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    margin-left: 10vw;
+    margin-top: 50px;
 }
-.waitdot>div{
-    display: inline-block;
-    font-size: 40px;
+
+@keyframes waitbar{
+    0%{
+        background-color: #ddf;
+        width: 0vw;
+        margin-left: 10vw;
+    }
+    50%{
+        background-color: #aaf;
+        width: 60vw;
+        margin-left: 10vw;
+    }
+    100%{
+        background-color: #66f;
+        width: 0vw;
+        margin-left: 70vw;
+    }
 }
+
 .waittxt{
     font-size: 37.5px;
     text-align: center;
+    padding-top: 40px;
 }
 
 h1{
