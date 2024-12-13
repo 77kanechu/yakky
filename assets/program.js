@@ -31,7 +31,7 @@ async function loadData() {
             labels:days,
             datasets: [
                 {
-                    label: 'ヤッキー相場',
+                    label: 'やっきー相場',
                     data: yakkyvalue,
                     borderColor: "#ff0000ff",
                     backgroundColor: "#ffffff00"
