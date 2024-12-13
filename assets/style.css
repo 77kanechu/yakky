@@ -11,6 +11,7 @@ body{
     background-color: #ccc;
     left: 10vw;
     top: calc(50vh - 100px);
+    border-radius: 2vw;
 }
 
 .waitbar{
