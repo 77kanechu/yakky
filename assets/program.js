@@ -13,7 +13,11 @@ async function loadData() {
     document.getElementById("waittxt").innerText = "データ取得中"
 
     const response = await fetch("https://script.google.com/macros/s/AKfycbzQvkU2u3rsg5EGYriaL7UcG5Nt396D1xFKZnZS0JI4DDQia4z8QxqQ0HEsjSanjhj6/exec");
+    
+    document.getElementById("waittxt").innerText = "データ変換中"
+    
     const data  = await response.json();
+
     data.forEach(entry => {
         const x = entry.day;
         const y = entry.yakisoba;
@@ -24,6 +28,9 @@ async function loadData() {
         yakkyvalue[times] = (64 + 4 * y - 4 * z);
         times--;
     });
+    
+    document.getElementById("waittxt").innerText = "データ表示中"
+
     document.getElementById("yvalue").innerText = yakkyvalue[6];
     document.getElementById("gvalue").innerText = Math.round((yakkyvalue[6] / 16 * 100)) / 100;
     document.getElementById("lastvalue").innerText = Math.round(yakkyvalue[6] / yakkyvalue[5] * 10000) / 100 + "%";
