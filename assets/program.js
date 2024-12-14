@@ -6,6 +6,7 @@ let yakkyvalue = ["","","","","","",""];
 
 let times = 6;
 
+let graphticks;
 
 async function loadData() {
 
@@ -31,19 +32,17 @@ async function loadData() {
 
     document.getElementById("waittxt").innerText = "グラフ描画中";
 
+    if (window.innerWidth < 512) {
+        let graphticks = 2;
+    } else {
+        let graphticks = 1;
+    }
+
     var yakky = new Chart(yakkyctx, {
         type: 'line',
         data: {
             labels:days,
-            datasets: [
-                {
-                    label: 'やっきー相場',
-                    data: yakkyvalue,
-                    borderColor: "#ff0000ff",
-                    backgroundColor: "#ffffff00",
-                    lineTension: 0,
-                    yAxisID: "value",
-                },{
+            datasets: [{
                     label: '焼きそばを食べた人数',
                     data: yakisobas,
                     borderColor: "#349354ff",
@@ -58,11 +57,20 @@ async function loadData() {
                     lineTension: 0,
                     yAxisID: "other",
                 },
+                {
+                    label: 'やっきー相場',
+                    data: yakkyvalue,
+                    borderColor: "#ff0000ff",
+                    backgroundColor: "#ffdddd88",
+                    lineTension: 0,
+                    yAxisID: "value",
+                },
             ]
         },
         
         options: {
             responsive: true,
+            maintainAspectratio: false,
             scales: {
                 yAxes: [{
                     id: "value",
@@ -70,7 +78,7 @@ async function loadData() {
                     ticks: {
                         min: 0,
                         max: 80,
-                        stepSize: 10,
+                        stepSize: graphticks,
                     },
                 },{
                     id: "other",
@@ -78,7 +86,7 @@ async function loadData() {
                     ticks: {
                         min: 0,
                         max: 8,
-                        stepSize: 1,
+                        stepSize: graphticks,
                     },
                 },],
 
@@ -88,7 +96,8 @@ async function loadData() {
             },
         },
     })
-    document.getElementById("waitbox").style.display = "none"
+
+    document.getElementById("waitbox").style.display = "none";
 }
 
 loadData();

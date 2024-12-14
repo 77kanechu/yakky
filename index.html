@@ -48,8 +48,13 @@
         </div> 
     </div>
     <div class="graph">
-        <canvas id="yakkygraph"></canvas>
+        <canvas id="yakkygraph" height="150"></canvas>
     </div>
+    <script>
+        if (window.innerWidth < innerHeight) {
+            document.getElementById('yakkygraph').height = 300
+        }
+    </script>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
