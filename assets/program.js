@@ -4,7 +4,7 @@ let yakisobas = ["","","","","","",""];
 let yoreis = ["","","","","","",""];
 let yakkyvalue = ["","","","","","",""];
 
-let times = 6;
+let times = 13;
 
 let graphticks;
 
@@ -12,7 +12,7 @@ async function loadData() {
 
     document.getElementById("waittxt").innerText = "データ取得中"
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzQvkU2u3rsg5EGYriaL7UcG5Nt396D1xFKZnZS0JI4DDQia4z8QxqQ0HEsjSanjhj6/exec");
+    const response = await fetch("https://script.google.com/macros/s/AKfycby0-qD8dnOzsVK6TlKCrRqb4IAYEg3Um3pt7f7nOt9sS_q9D3h7gpehhPrY7SREZXgE/exec");
     
     document.getElementById("waittxt").innerText = "データ変換中"
     
@@ -31,15 +31,15 @@ async function loadData() {
     
     document.getElementById("waittxt").innerText = "データ表示中"
 
-    document.getElementById("yvalue").innerText = yakkyvalue[6];
-    document.getElementById("gvalue").innerText = Math.round((yakkyvalue[6] / 16 * 100)) / 100;
-    document.getElementById("lastvalue").innerText = Math.round(yakkyvalue[6] / yakkyvalue[5] * 10000) / 100 + "%";
-    document.getElementById("ate").innerText = yakisobas[6];
-    document.getElementById("late").innerText = yoreis[6];
+    document.getElementById("yvalue").innerText = yakkyvalue[13];
+    document.getElementById("gvalue").innerText = Math.round((yakkyvalue[13] / 16 * 100)) / 100;
+    document.getElementById("lastvalue").innerText = Math.round(yakkyvalue[13] / yakkyvalue[12] * 10000) / 100 + "%";
+    document.getElementById("ate").innerText = yakisobas[13];
+    document.getElementById("late").innerText = yoreis[13];
 
     document.getElementById("waittxt").innerText = "グラフ描画中";
 
-    if (window.innerWidth < 512) {
+    if (window.outerWidth < 512) {
         let graphticks = 2;
     } else {
         let graphticks = 1;
