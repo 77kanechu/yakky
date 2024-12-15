@@ -45,6 +45,8 @@ async function loadData() {
         let graphticks = "1";
     }
 
+    let hit = Number(window.outerWidth / 100)
+
     var yakky = new Chart(yakkyctx, {
         type: 'line',
         data: {
@@ -60,7 +62,7 @@ async function loadData() {
                     lineTension: 0,
                     pointRadius: 3,
                     pointHoverRadius: 8,
-                    pointHitRadius: 50,
+                    pointHitRadius: hit,
                     yAxisID: "other",
                 },{
                     label: '予鈴遅刻の人数',
@@ -73,7 +75,7 @@ async function loadData() {
                     lineTension: 0,
                     pointRadius: 3,
                     pointHoverRadius: 8,
-                    pointHitRadius: 50,
+                    pointHitRadius: hit,
                     yAxisID: "other",
                 },
                 {
@@ -87,7 +89,7 @@ async function loadData() {
                     lineTension: 0,
                     pointRadius: 3,
                     pointHoverRadius: 8,
-                    pointHitRadius: 50,
+                    pointHitRadius: hit,
                     yAxisID: "value",
                 },
             ]
