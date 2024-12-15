@@ -40,9 +40,9 @@ async function loadData() {
     document.getElementById("waittxt").innerText = "グラフ描画中";
 
     if (window.outerWidth < 512) {
-        let graphticks = 2;
+        let graphticks = "2";
     } else {
-        let graphticks = 1;
+        let graphticks = "1";
     }
 
     var yakky = new Chart(yakkyctx, {
@@ -53,23 +53,41 @@ async function loadData() {
                     label: '焼きそばを食べた人数',
                     data: yakisobas,
                     borderColor: "#349354ff",
+                    borderWidth: "5",
+                    borderJoinStyle: "round",
                     backgroundColor: "#ffffff00",
+                    pointBackgroundColor: "#349354ff",
                     lineTension: 0,
+                    pointRadius: 3,
+                    pointHoverRadius: 8,
+                    pointHitRadius: 50,
                     yAxisID: "other",
                 },{
                     label: '予鈴遅刻の人数',
                     data: yoreis,
                     borderColor: "#347193ff",
+                    borderWidth: "5",
+                    borderJoinStyle: "round",
                     backgroundColor: "#ffffff00",
+                    pointBackgroundColor: "#347193ff",
                     lineTension: 0,
+                    pointRadius: 3,
+                    pointHoverRadius: 8,
+                    pointHitRadius: 50,
                     yAxisID: "other",
                 },
                 {
                     label: 'やっきー相場',
                     data: yakkyvalue,
                     borderColor: "#ff0000ff",
+                    borderWidth: "5",
+                    borderJoinStyle: "round",
                     backgroundColor: "#ffdddd88",
+                    pointBackgroundColor: "#ff0000ff",
                     lineTension: 0,
+                    pointRadius: 3,
+                    pointHoverRadius: 8,
+                    pointHitRadius: 50,
                     yAxisID: "value",
                 },
             ]
