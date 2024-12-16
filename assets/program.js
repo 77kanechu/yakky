@@ -12,7 +12,7 @@ async function loadData() {
 
     document.getElementById("waittxt").innerText = "データ取得中"
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycby0-qD8dnOzsVK6TlKCrRqb4IAYEg3Um3pt7f7nOt9sS_q9D3h7gpehhPrY7SREZXgE/exec");
+    const response = await fetch("https://script.google.com/macros/s/AKfycbyimgNB71DM6dEQtfu1XwLIZ4JpJtqJH7tRL3tmnzQqy_t2GgW0J27LURz9v0rXCEqz/exec");
     
     document.getElementById("waittxt").innerText = "データ変換中"
     
@@ -25,7 +25,7 @@ async function loadData() {
         days[times] = x;
         yakisobas[times] = y;
         yoreis[times] = z;
-        yakkyvalue[times] = (64 + 4 * y - 4 * z);
+        yakkyvalue[times] = (64 - 4 * y + 4 * z);
         times--;
     });
     
