@@ -39,12 +39,6 @@ async function loadData() {
 
     document.getElementById("waittxt").innerText = "グラフ描画中";
 
-    if (window.outerWidth < 512) {
-        let graphticks = "2";
-    } else {
-        let graphticks = "1";
-    }
-
     let hit = Number(window.outerWidth / 100)
 
     var yakky = new Chart(yakkyctx, {
@@ -104,7 +98,6 @@ async function loadData() {
                     position: "left",
                     ticks: {
                         min: 0,
-                        max: 80,
                         stepSize: graphticks,
                     },
                 },{
@@ -112,7 +105,7 @@ async function loadData() {
                     position: "right",
                     ticks: {
                         min: 0,
-                        max: 8,
+                        max: yoreis[13] + 2,
                         stepSize: graphticks,
                     },
                 },],
