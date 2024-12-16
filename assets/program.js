@@ -25,7 +25,7 @@ async function loadData() {
         days[times] = x;
         yakisobas[times] = y;
         yoreis[times] = z;
-        yakkyvalue[times] = (64 - 4 * y + 4 * z);
+        yakkyvalue[times] = (64 - 4 * y + z);
         times--;
     });
     
