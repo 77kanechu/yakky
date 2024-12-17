@@ -2,11 +2,11 @@ var yakkyctx = document.getElementById("yakkygraph");
 let days = ["","","","","","",""];
 let yakisobas = ["","","","","","",""];
 let yoreis = ["","","","","","",""];
-let yakkyvalue = ["","","","","","",""];
+let yakkyvalue = [,,,,,,];
 
 let times = 13;
 
-let graphticks;
+let graphmax;
 
 async function loadData() {
 
@@ -25,7 +25,7 @@ async function loadData() {
         days[times] = x;
         yakisobas[times] = y;
         yoreis[times] = z;
-        yakkyvalue[times] = (64 + 4 * ( - 4 * y + z));
+        yakkyvalue[times] = Number((64 + 4 * ( - 4 * y + z)));
         times--;
     });
     
@@ -38,6 +38,8 @@ async function loadData() {
     document.getElementById("late").innerText = yoreis[13];
 
     document.getElementById("waittxt").innerText = "グラフ描画中";
+        
+    graphmax = Math.floor(Math.max(...yakkyvalue) / 10) * 10 + 10;
 
     let hit = Number(window.outerWidth / 100)
 
@@ -98,15 +100,16 @@ async function loadData() {
                     position: "left",
                     ticks: {
                         min: 0,
-                        stepSize: graphticks,
+                        stepSize: 10,
+                        max: graphmax,
                     },
                 },{
                     id: "other",
                     position: "right",
                     ticks: {
                         min: 0,
-                        max: yoreis[13] + 2,
-                        stepSize: graphticks,
+                        max: graphmax / 10,
+                        stepSize: 1,
                     },
                 },],
 
