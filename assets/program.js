@@ -18,10 +18,12 @@ async function loadData() {
         const response = await fetch("https://script.google.com/macros/s/AKfycbzlz5aG8BAIhyB2sxzuSEzsQ9x8Fe5gKL5HC1xs2TbC_LlGQalEaBg2ZZxfHopaZFbU/exec");
     
         if (!response.ok) {
-            throw new Error ('net work error');
+            throw new Error ('dataget');
         }
 
-        document.getElementById("waittxt").innerText = "データ変換中";const data  = await response.json();
+        document.getElementById("waittxt").innerText = "データ変換中";
+
+        const data  = await response.json();
 
         data.forEach(entry => {
             const x = entry.day;
@@ -132,8 +134,10 @@ async function loadData() {
         document.getElementById("waitbox").style.display = "none";
 
     } catch (error) {
-        console.error("net work error");
-        document.getElementById("waittxt").innerText = "データの取得に失敗";
+        if (error == "TypeError: Failed to fetch") {
+            console.error("net work error");
+            document.getElementById("waittxt").innerText = "データの取得に失敗";
+        }
         document.getElementById("waittxt").style.fontSize = "32px";
         document.getElementById("waitbar").style.display = "none";
         document.getElementById("errorbar").style.display = "block"
@@ -141,10 +145,4 @@ async function loadData() {
     
 }
 
-try {
-    loadData();
-} catch (e) {
-    window.onerror = function(msg,url,line,col,error){
-        console.log(msg + " " + url + " " + line + " " + col + " " + error);
-    }
-}
+loadData();
