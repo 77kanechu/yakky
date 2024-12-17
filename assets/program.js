@@ -12,11 +12,23 @@ let graphmax;
 
 async function loadData() {
 
-    document.getElementById("waittxt").innerText = "データ取得中"
+    document.getElementById("waittxt").innerText = "データ取得中";
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzlz5aG8BAIhyB2sxzuSEzsQ9x8Fe5gKL5HC1xs2TbC_LlGQalEaBg2ZZxfHopaZFbU/exec");
+    try{
+        const response = await fetch("https://script.google.com/macros/s/AKfycbzlz5aG8BAIhyB2sxzuSEzsQ9x8Fe5gKL5HC1xs2TbC_LlGQalEaBg2ZZxfHopaZFbU/exec");
     
-    document.getElementById("waittxt").innerText = "データ変換中"
+        if (!response.ok) {
+            throw new Error ('net work error');
+        }
+
+        document.getElementById("waittxt").innerText = "データ変換中";
+    } catch (error) {
+        console.error("net work error");
+        document.getElementById("waittxt").innerText = "データの取得に失敗";
+        document.getElementById("waittxt").style.fontSize = "32px";
+        document.getElementById("waitbar").style.display = "none";
+        document.getElementById("errorbar").style.display = "block"
+    }
     
     const data  = await response.json();
 
@@ -129,4 +141,10 @@ async function loadData() {
     document.getElementById("waitbox").style.display = "none";
 }
 
-loadData();
+try {
+    loadData();
+} catch (e) {
+    window.onerror = function(msg,url,line,col,error){
+        console.log(msg + " " + url + " " + line + " " + col + " " + error);
+    }
+}

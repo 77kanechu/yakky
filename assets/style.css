@@ -25,6 +25,14 @@ body{
     margin-top: 50px;
 }
 
+#errorbar{
+    height: 20px;
+    margin-left: 10vw;
+    margin-top: 50px;
+    width: 60vw;
+    background-color: #f00;
+}
+
 @keyframes waitbar{
     0%{
         background-color: #ddf;
