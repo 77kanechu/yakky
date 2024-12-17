@@ -2,6 +2,8 @@ var yakkyctx = document.getElementById("yakkygraph");
 let days = ["","","","","","",""];
 let yakisobas = ["","","","","","",""];
 let yoreis = ["","","","","","",""];
+let yakisobasadd = ["","","","","","",""];
+let yoreisadd = ["","","","","","",""];
 let yakkyvalue = [,,,,,,];
 
 let times = 13;
@@ -12,7 +14,7 @@ async function loadData() {
 
     document.getElementById("waittxt").innerText = "データ取得中"
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyimgNB71DM6dEQtfu1XwLIZ4JpJtqJH7tRL3tmnzQqy_t2GgW0J27LURz9v0rXCEqz/exec");
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzlz5aG8BAIhyB2sxzuSEzsQ9x8Fe5gKL5HC1xs2TbC_LlGQalEaBg2ZZxfHopaZFbU/exec");
     
     document.getElementById("waittxt").innerText = "データ変換中"
     
@@ -22,14 +24,18 @@ async function loadData() {
         const x = entry.day;
         const y = entry.yakisoba;
         const z = entry.yorei;
+        const yadd = entry.yakisobaadd;
+        const zadd = entry.yoreiadd;
         days[times] = x;
         yakisobas[times] = y;
         yoreis[times] = z;
+        yakisobasadd[times] = yadd;
+        yoreisadd[times] = zadd;
         yakkyvalue[times] = Number((64 + 4 * ( - 4 * y + z)));
         times--;
     });
     
-    document.getElementById("waittxt").innerText = "データ表示中"
+    document.getElementById("waittxt").innerText = "データ表示中";
 
     document.getElementById("yvalue").innerText = yakkyvalue[13];
     document.getElementById("gvalue").innerText = Math.round((yakkyvalue[13] / 16 * 100)) / 100;
@@ -49,7 +55,7 @@ async function loadData() {
             labels:days,
             datasets: [{
                     label: '焼きそばを食べた人数',
-                    data: yakisobas,
+                    data: yakisobasadd,
                     borderColor: "#349354ff",
                     borderWidth: "5",
                     borderJoinStyle: "round",
@@ -62,7 +68,7 @@ async function loadData() {
                     yAxisID: "other",
                 },{
                     label: '予鈴遅刻の人数',
-                    data: yoreis,
+                    data: yoreisadd,
                     borderColor: "#347193ff",
                     borderWidth: "5",
                     borderJoinStyle: "round",
