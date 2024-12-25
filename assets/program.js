@@ -37,6 +37,9 @@ async function loadData() {
             yakisobasadd[times] = yadd;
             yoreisadd[times] = zadd;
             yakkyvalue[times] = Number((64 + 4 * ( - 4 * y + z)));
+            if (yakkyvalue[times] < 1){
+                yakkyvalue[times] = 1;
+            } 
             times--;
         });
         
